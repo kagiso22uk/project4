@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>KUTLWANONG GALA DINNER</h1>
+    <p>TIME: 18h00pm</p>
+    <p>DATE: 22 JUNE 2025</p>
+    <p>LOCATION: NTHABISEKO RESORT</p>
+    <script>
+        const eventDate = newDate('2025-06-22T18:00:00').getTime();
+
+        const countdownE1 = document.getElementById('countdown');
+
+        function updateCountdown(){
+            const now = new Date().getTime();
+            const distance = eventdate - now;
+
+            if (distance <= 0) {
+                countdownE1.textContent = "Time is up!";
+                clearInterval(timerInterval);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) /1000);
+
+            countdownE1.textContent = '${days}d ${hours}h ${minutes}m ${seconds}s';
+        }
+
+        updateCountdown();
+        const timerInterval = setInterval(updatecountdown, 1000);
+    </script>
+    
+</body>
+</html>
